@@ -1,0 +1,21 @@
+.react-tel-input {
+  margin-left: 0 !important;
+}
+
+.flag-dropdown.open {
+  border-color: #6bcd72 !important;
+}
+
+.selected-flag {
+  padding-left: .4em !important;
+}
+
+.arrow {
+  border: solid rgba(0, 0, 0, .4) !important;
+  border-width: 0 1.5px 1.5px 0 !important;
+  display: inline-block !important;
+  padding: 2px;
+  transform: rotate(45deg);
+  top: 0 !important;
+  left: 2.1em !important;
+}

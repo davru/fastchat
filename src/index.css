@@ -1,0 +1,21 @@
+body {
+  margin: 0;
+  font-family: Circular,"Roboto","Oxygen","Ubuntu","Cantarell","Fira Sans","Droid Sans","Helvetica Neue",sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow: hidden;
+}
+
+@font-face {
+  font-family: Circular;
+  font-weight: normal;
+  src: url("./assets/font/CircularStd-Medium.otf") format("opentype");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: Circular;
+  font-weight: bold;
+  src: url("./assets/font/CircularStd-Bold.otf") format("opentype");
+  font-display: swap;
+}
