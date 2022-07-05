@@ -19,3 +19,8 @@
   top: 0 !important;
   left: 2.1em !important;
 }
+
+.phone-input {
+  display: flex;
+  align-items: flex-end;
+}

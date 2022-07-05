@@ -1,38 +1,11 @@
 import { useState } from 'react';
 
-import 'react-phone-input-2/lib/high-res.css';
-import PhoneInput from 'react-phone-input-2';
+import PI from 'react-phone-input-2';
+const PhoneInput = PI.default ? PI.default : PI;
 import Button from './Button';
 
+import 'react-phone-input-2/lib/high-res.css';
 import './styles/PhoneForm.css';
-
-const ContainerStyles = {
-  display: 'flex',
-  alignItems: 'end',
-};
-
-const GenericStyles = {
-  border: 'none',
-  borderRadius: 0,
-  transition: 'all .4s ease',
-  borderBottom: `2px solid var(--secondary)`,
-  background: 'transparent',
-};
-
-const InputStyles = (hover) => {
-  return {
-    ...GenericStyles,
-    marginLeft: '4.5em',
-    paddingLeft: '.5em',
-    borderBottom: hover
-      ? `2px solid var(--primary)`
-      : `2px solid var(--secondary)`,
-  };
-};
-
-const ButtonStyles = {
-  ...GenericStyles,
-};
 
 const PhoneForm = () => {
   const [hover, setHover] = useState(false);
@@ -45,7 +18,7 @@ const PhoneForm = () => {
   };
 
   return (
-    <div style={ContainerStyles}>
+    <div className="phone-input">
       <PhoneInput
         country={'es'}
         value={phone}
@@ -54,8 +27,24 @@ const PhoneForm = () => {
           width: 'auto',
           margin: '0 2em .05em 1em',
         }}
-        inputStyle={InputStyles(hover)}
-        buttonStyle={ButtonStyles}
+        inputStyle={{
+          border: 'none',
+          borderRadius: 0,
+          transition: 'all .4s ease',
+          background: 'transparent',
+          marginLeft: '4.5em',
+          paddingLeft: '.5em',
+          borderBottom: hover
+            ? `2px solid var(--primary)`
+            : `2px solid var(--secondary)`,
+        }}
+        buttonStyle={{
+          border: 'none',
+          borderRadius: 0,
+          transition: 'all .4s ease',
+          borderBottom: `2px solid var(--secondary)`,
+          background: 'transparent',
+        }}
         onBlur={() => setHover(false)}
         onFocus={() => setHover(true)}
         onChange={updatePhone}
