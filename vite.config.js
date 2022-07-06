@@ -17,6 +17,7 @@ export default defineConfig({
         cleanupOutdatedCaches: true,
         skipWaiting: true,
         clientsClaim: true,
+        globPatterns: ['**/*.{js,css,html,svg,png}'],
       },
       manifest: {
         name: 'WA Fast-chat',
