@@ -1,0 +1,22 @@
+.connectivity-alert {
+  position: fixed;
+  width: 85%;
+  background: var(--error);
+  z-index: 1100;
+  display: flex;
+  margin-top: 1.25em;
+  align-items: flex-start;
+  padding: 1.5em 1.25em;
+  border-radius: .5em;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.connectivity-alert__icon {
+  width: 1.5em;
+  margin-right: 1.25em;
+}
+
+.connectivity-alert__text {
+  margin: 0;
+}

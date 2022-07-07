@@ -1,26 +1,77 @@
 import './styles/Navbar.css';
 import logo from '../assets/logo.svg';
+import settingsIcon from '../assets/icons/settings.svg';
 
-const Navbar = () => {
+import { isMobile } from 'react-device-detect';
+import { useState } from 'react';
+import useTouchedOutside from '../hooks/useTouchedOutside';
+import { isPWA } from '../services/pwa.service';
+
+const Navbar = ({ clickInstall }) => {
+  const [menu, setMenu] = useState(false);
+  const toggleMenu = () => setMenu(!menu);
+  const ref = useTouchedOutside((e) => {
+    const isSettings =
+      e.target?.classList?.contains('navbar__settings') ||
+      e.target?.classList?.contains('navbar__settings__icon');
+    if (!isSettings) setMenu(false);
+  });
+
   return (
     <nav className="navbar">
       <img className="navbar__logo" src={logo} alt="whatsapp fast chat" />
-      <div className="navbar__list">
-        <a className="navbar__item navbar__item--active">The app</a>
-        <a className="navbar__item" href="mailto:contact@dsgdsr.me">
-          Report issue
-        </a>
-        <a
-          className="navbar__item"
-          href="https://www.whatsapp.com/"
-          target="_blank"
+
+      {isPWA() && (
+        <div className="navbar__settings" onClick={toggleMenu}>
+          <img className="navbar__settings__icon" src={settingsIcon} />
+        </div>
+      )}
+
+      {(!isPWA() || menu) && (
+        <div
+          ref={ref}
+          className={`navbar__list ${
+            isPWA() ? 'navbar__list--dropdown' : null
+          }`}
         >
-          Whatsapp web
-        </a>
-        <a className="navbar__item" href="https://dsgdsr.me" target="_blank">
-          The developer ;)
-        </a>
-      </div>
+          <a className="navbar__item navbar__item--active navbar__item--no-mobile">
+            The app
+          </a>
+          <a className="navbar__item" href="mailto:contact@dsgdsr.me">
+            Report issue
+          </a>
+          <a
+            className="navbar__item navbar__item--no-mobile"
+            href="https://www.whatsapp.com/"
+            target="_blank"
+          >
+            Whatsapp web
+          </a>
+          {isMobile && !isPWA() && (
+            <a className="navbar__item" onClick={clickInstall}>
+              Install app
+            </a>
+          )}
+          {isPWA() && (
+            <a
+              className="navbar__item"
+              href="https://www.paypal.com/donate?hosted_button_id=YFXTYPKAALV2E"
+              target="_blank"
+            >
+              Contribute
+            </a>
+          )}
+          {(!isMobile || isPWA()) && (
+            <a
+              className="navbar__item"
+              href="https://dsgdsr.me"
+              target="_blank"
+            >
+              The developer ;)
+            </a>
+          )}
+        </div>
+      )}
     </nav>
   );
 };

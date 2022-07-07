@@ -1,11 +1,36 @@
-import './App.css';
+import { useEffect, useState } from 'react';
+import Footer from './components/Footer';
 import Navbar from './components/Navbar';
 import PhoneForm from './components/PhoneForm';
+import InstallModal from './components/InstallModal';
+import ConnectivityAlert from './components/ConnectivityAlert';
+
+import './App.css';
+import { useMatomo } from '@datapunt/matomo-tracker-react';
+import { isPWA } from './services/pwa.service';
 
 function App() {
+  const { trackPageView, trackEvent } = useMatomo();
+  const [modal, setModal] = useState(false);
+
+  const openModal = () => {
+    trackEvent({ category: 'pwa', action: 'wants-to-install' });
+    setModal(true);
+  };
+  const closeModal = () => setModal(false);
+
+  useEffect(() => {
+    trackPageView();
+    window.addEventListener('appinstalled', () => {
+      trackEvent({ category: 'pwa', action: 'install' });
+    });
+  }, []);
+
   return (
     <>
-      <Navbar />
+      {isPWA() && <ConnectivityAlert />}
+      <InstallModal state={modal} closeModal={closeModal} />
+      <Navbar clickInstall={openModal} />
       <div className="app-container">
         <h2>
           Simple. Secure. Fast.
@@ -26,6 +51,7 @@ function App() {
 
         <PhoneForm />
       </div>
+      <Footer />
     </>
   );
 }
