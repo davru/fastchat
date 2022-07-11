@@ -24,3 +24,44 @@
   display: flex;
   align-items: flex-end;
 }
+
+.phone-input__buttons {
+  display: flex;
+}
+
+@media (max-width: 800px) {
+  .phone-input {
+    flex-direction: column;
+  }
+  
+  .react-tel-input {
+    margin: 0 0 2em 0 !important;
+    width: 100% !important;
+  }
+  .react-tel-input .form-control {
+    width: calc(100% - 65px) !important;
+  }
+
+  .phone-input__buttons {
+    width: 100%;
+  }
+
+  .button:first-child {
+    width: calc(50% - 20px);
+  }
+
+  .button:last-child {
+    width: 50%;
+    margin: 0;
+  }
+}
+
+@media (display-mode: standalone) {
+  .button:first-child {
+    width: 100%;
+    margin: 0;
+  }
+  .button:last-child {
+    display: none;
+  }
+}

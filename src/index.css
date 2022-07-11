@@ -6,6 +6,16 @@ body {
   overflow: hidden;
 }
 
+html {
+  overflow: hidden;
+}
+
+@media (max-width: 450px) {
+  body {
+    overflow-y: scroll;
+  }
+}
+
 @font-face {
   font-family: Circular;
   font-weight: normal;
@@ -18,4 +28,8 @@ body {
   font-weight: bold;
   src: url("./assets/font/CircularStd-Bold.otf") format("opentype");
   font-display: swap;
+}
+
+* {
+  -webkit-tap-highlight-color: transparent;
 }
