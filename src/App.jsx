@@ -5,9 +5,11 @@ import PhoneForm from './components/PhoneForm';
 import InstallModal from './components/InstallModal';
 import ConnectivityAlert from './components/ConnectivityAlert';
 
-import './App.css';
+import { isDesktop } from 'react-device-detect';
 import { useMatomo } from '@datapunt/matomo-tracker-react';
 import { isPWA } from './services/pwa.service';
+
+import './App.css';
 
 function App() {
   const { trackPageView, trackEvent } = useMatomo();
@@ -41,8 +43,15 @@ function App() {
         <p>
           An easy and fast solution to avoid needing to add contacts before
           writing to them through WhatsApp.
-          <br />
-          <br />
+          {isDesktop ? (
+            <>
+              <br /> <br />
+              It is preferable to visit this website through a{' '}
+              <span style={{ color: '#25a914' }}>mobile device</span>, as you
+              will be able to download the tool as an app.
+            </>
+          ) : null}
+          <br /> <br />
           You can now start any chat using the form below, so you will keep your
           contact list as clean as a whistle. Keep your phone secure! When
           clicking on <b>"Launch chat"</b>, you will be redirected to an
