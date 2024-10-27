@@ -1,1 +1,1 @@
-# whatsapp-fast-chat
+# FastChat

@@ -1,57 +1,64 @@
-
 :root {
-  --primary: #3ec24f;
-  --primary-hover: #37b247;
-  --secondary: #c9c9c9;
+	--primary: #3ec24f;
+	--primary-hover: #37b247;
+	--secondary: #c9c9c9;
 
-  --text-color: #292640;
-  --text-color--light: #313131;
+	--text-color: #292640;
+	--text-color--light: #313131;
 
-  --error: #fcecef;
+	--error: #fcecef;
 }
 
 .app-container {
-  color: var(--text-color);
-  display: flex;
-  flex-direction: column;
-  margin: 2.5em auto 0 auto;
-  width: 1200px;
-  max-width: 87.5%;
-  max-height: 100vh;
+	color: var(--text-color);
+	display: flex;
+	flex-direction: column;
+	margin: 2.5em auto 0 auto;
+	width: 1200px;
+	max-width: 87.5%;
+	max-height: 100vh;
 }
 
 @media (min-width: 500px) {
-  .app-container {
-    justify-content: center;
-    margin: -7.5% auto 0 auto;
-    height: 100vh;
-  }
+	.app-container {
+		justify-content: center;
+		margin: -7.5% auto 0 auto;
+		height: 100vh;
+	}
 }
 
 @media (min-width: 800px) {
-  .app-container::before {
-    content: '';
-    position: absolute;
-    background: url('./assets/logo.svg');
-    width: 35em;
-    height: 35em;
-    opacity: .35;
-    z-index: -1;
-    transform: rotate(10deg);
-    right: -5%;
-    bottom: -2.5%;
-  }
+	.app-container::before {
+		content: '';
+		position: absolute;
+		background: url('./assets/logo.svg');
+		width: 35em;
+		height: 35em;
+		opacity: 0.35;
+		z-index: -1;
+		transform: rotate(10deg);
+		right: -5%;
+		bottom: -2.5%;
+	}
 }
 
 h2 {
-  font-size: 35px;
-  margin-bottom: 20px;
+	margin-top: 0;
+	font-size: 35px;
+	margin-bottom: 20px;
 }
 
 p {
-  font-size: 16px;
-  font-weight: 400;
-  margin: 20px 0 100px;
-  max-width: 650px;
-  color: var(--text-color--light);
+	font-size: 16px;
+	font-weight: 400;
+	margin: 20px 0 100px;
+	max-width: 650px;
+	color: var(--text-color--light);
+}
+
+@media (display-mode: standalone) {
+	body {
+		height: 100vh;
+		height: 100dvh;
+	}
 }
