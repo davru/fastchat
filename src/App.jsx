@@ -7,7 +7,7 @@ import ConnectivityAlert from './components/ConnectivityAlert';
 import Footer from './components/Footer';
 import Navbar from './components/Navbar';
 import PhoneForm from './components/PhoneForm';
-import { isPWA } from './services/pwa.service';
+import { isPWA } from './utils/pwa';
 
 import { useRef } from 'react';
 import './App.css';
