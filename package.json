@@ -9,6 +9,7 @@
 		"deploy": "npx wrangler pages deploy dist --project-name fastchat"
 	},
 	"dependencies": {
+		"@aptabase/react": "^0.3.5",
 		"@datapunt/matomo-tracker-react": "^0.5.1",
 		"@khmyznikov/pwa-install": "^0.4.8",
 		"react": "^18.0.0",

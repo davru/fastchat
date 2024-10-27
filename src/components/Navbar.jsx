@@ -19,7 +19,7 @@ const Navbar = ({ clickInstall }) => {
 
 	return (
 		<nav className="navbar">
-			<img className="navbar__logo" src={logo} alt="whatsapp fast chat" />
+			<img className="navbar__logo" src={logo} alt="WhatsApp fast chat" />
 
 			{isPWA() && (
 				<div className="navbar__settings" onClick={toggleMenu}>
@@ -37,7 +37,7 @@ const Navbar = ({ clickInstall }) => {
 					<a className="navbar__item navbar__item--active navbar__item--no-mobile">
 						The app
 					</a>
-					<a className="navbar__item" href="mailto:contact@dsgdsr.me">
+					<a className="navbar__item" href="mailto:contact@davru.dev">
 						Report issue
 					</a>
 					<a
@@ -64,7 +64,7 @@ const Navbar = ({ clickInstall }) => {
 					{(!isMobile || isPWA()) && (
 						<a
 							className="navbar__item"
-							href="https://dsgdsr.me"
+							href="https://davru.dev"
 							target="_blank"
 						>
 							The developer ;)

@@ -1,4 +1,3 @@
-import { useMatomo } from '@datapunt/matomo-tracker-react';
 import PWAInstall from '@khmyznikov/pwa-install/react-legacy';
 import { useEffect } from 'react';
 import { isDesktop } from 'react-device-detect';
@@ -9,22 +8,23 @@ import Navbar from './components/Navbar';
 import PhoneForm from './components/PhoneForm';
 import { isPWA } from './utils/pwa';
 
+import { useAptabase } from '@aptabase/react';
 import { useRef } from 'react';
 import './App.css';
 
 function App() {
-	const { trackPageView, trackEvent } = useMatomo();
+	const { trackEvent } = useAptabase();
 	const pwaInstallRef = useRef(null);
 
 	const openPrompt = () => {
-		trackEvent({ category: 'pwa', action: 'wants-to-install' });
+		trackEvent('wants-to-install');
 		pwaInstallRef.current?.showDialog(true);
 	};
 
 	useEffect(() => {
-		trackPageView();
+		trackEvent('visit');
 		window.addEventListener('appinstalled', () => {
-			trackEvent({ category: 'pwa', action: 'install' });
+			trackEvent('install');
 		});
 	}, []);
 
@@ -36,7 +36,7 @@ function App() {
 				<h2>
 					Simple. Secure. Fast.
 					<br />
-					Start a whatsapp chat!
+					Start a WhatsApp chat!
 				</h2>
 
 				{!isPWA() && (
@@ -67,6 +67,7 @@ function App() {
 					ref={pwaInstallRef}
 					name={'FastChat'}
 					icon={logo}
+					isDialogHidden={true}
 					description="An easy and fast solution to avoid needing to add contacts before writing to them through WhatsApp."
 				/>
 			)}

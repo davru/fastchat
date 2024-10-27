@@ -15,3 +15,15 @@ footer a {
 		display: none;
 	}
 }
+
+@media (display-mode: standalone) {
+	body {
+		height: 100vh;
+		height: 100dvh;
+	}
+	footer {
+		position: absolute;
+		width: 100%;
+		bottom: 1rem;
+	}
+}

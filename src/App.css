@@ -44,14 +44,14 @@
 
 h2 {
 	margin-top: 0;
-	font-size: 35px;
-	margin-bottom: 20px;
+	font-size: 2.15rem;
+	margin-bottom: 1.25rem;
 }
 
 p {
-	font-size: 16px;
+	font-size: 1rem;
 	font-weight: 400;
-	margin: 20px 0 100px;
+	margin: 1.25rem 0 4rem;
 	max-width: 650px;
 	color: var(--text-color--light);
 }
@@ -60,5 +60,8 @@ p {
 	body {
 		height: 100vh;
 		height: 100dvh;
+	}
+	.phone-input {
+		margin-top: 2rem;
 	}
 }
