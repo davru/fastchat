@@ -40,14 +40,7 @@ const Navbar = ({ clickInstall }) => {
 					<a className="navbar__item" href="mailto:contact@davru.dev">
 						Report issue
 					</a>
-					<a
-						className="navbar__item navbar__item--no-mobile"
-						href="https://www.whatsapp.com/"
-						target="_blank"
-					>
-						Whatsapp web
-					</a>
-					{isMobile && !isPWA() && (
+					{!isPWA() && (
 						<a className="navbar__item" onClick={clickInstall}>
 							Install app
 						</a>

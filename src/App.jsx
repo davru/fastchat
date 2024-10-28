@@ -1,6 +1,5 @@
 import PWAInstall from '@khmyznikov/pwa-install/react-legacy';
 import { useEffect } from 'react';
-import { isDesktop } from 'react-device-detect';
 import logo from './assets/logo.svg';
 import ConnectivityAlert from './components/ConnectivityAlert';
 import Footer from './components/Footer';
@@ -41,21 +40,14 @@ function App() {
 
 				{!isPWA() && (
 					<p>
-						An easy and fast solution to avoid needing to add contacts before
-						writing to them through WhatsApp.
-						{isDesktop ? (
-							<>
-								<br /> <br />
-								It is preferable to visit this website through a{' '}
-								<span style={{ color: '#25a914' }}>mobile device</span>, as you
-								will be able to download the tool as an app.
-							</>
-						) : null}
+						Need to send a quick message on WhatsApp without the hassle of
+						adding a new contact? Our tool lets you start a chat immediately,
+						keeping your contact list clutter-free and organized.
 						<br /> <br />
-						You can now start any chat using the form below, so you will keep
-						your contact list as clean as a whistle. Keep your phone secure!
-						When clicking on <b>"Launch chat"</b>, you will be redirected to an
-						official WhatsApp link.
+						Simply enter the phone number below and hit <b>"Launch Chat"</b> –
+						you’ll be redirected to an official WhatsApp link in seconds. It’s
+						fast, secure, and keeps your phonebook neat. Enjoy a cleaner contact
+						list and a seamless messaging experience!
 					</p>
 				)}
 
