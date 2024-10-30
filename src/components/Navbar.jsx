@@ -3,7 +3,6 @@ import logo from '../assets/logo.svg';
 import './styles/Navbar.css';
 
 import { useState } from 'react';
-import { isMobile } from 'react-device-detect';
 import useTouchedOutside from '../hooks/useTouchedOutside';
 import { isPWA } from '../utils/pwa';
 
@@ -52,15 +51,6 @@ const Navbar = ({ clickInstall }) => {
 							target="_blank"
 						>
 							Contribute
-						</a>
-					)}
-					{(!isMobile || isPWA()) && (
-						<a
-							className="navbar__item"
-							href="https://davru.dev"
-							target="_blank"
-						>
-							The developer ;)
 						</a>
 					)}
 				</div>

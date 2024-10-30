@@ -1,15 +1,14 @@
+import { useAptabase } from '@aptabase/react';
 import PWAInstall from '@khmyznikov/pwa-install/react-legacy';
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
+import './App.css';
 import logo from './assets/logo.svg';
 import ConnectivityAlert from './components/ConnectivityAlert';
 import Footer from './components/Footer';
+import { GithubCorner } from './components/GithubCorner';
 import Navbar from './components/Navbar';
 import PhoneForm from './components/PhoneForm';
 import { isPWA } from './utils/pwa';
-
-import { useAptabase } from '@aptabase/react';
-import { useRef } from 'react';
-import './App.css';
 
 function App() {
 	const { trackEvent } = useAptabase();
@@ -54,6 +53,7 @@ function App() {
 				<PhoneForm />
 			</div>
 			<Footer />
+			<GithubCorner />
 			{!isPWA() && (
 				<PWAInstall
 					ref={pwaInstallRef}
